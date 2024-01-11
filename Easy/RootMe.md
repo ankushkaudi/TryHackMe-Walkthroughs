@@ -25,7 +25,8 @@ sudo nmap -sV -A (ip-address-of-the-machine)
 -sV -> performs/detects the versions of services running on the machine  
 -A -> performs OS and service detection  
 
---Pic 1 --
+![Pic 1](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/11435cf7-8ac6-4ad2-b133-3f4c877b20c7)
+
 
 The nmap results shows the following :  
 1. Port 22 is open running ssh version 7.6p1 (OpenSSH 7.6p1)  
@@ -35,14 +36,16 @@ The nmap results shows the following :
 Since http is running on port 80 we can connect to it. Open your browser and search for the url as follows :
 http://(ip-address-of-the-machine)  
 
---Pic 2 --
+![Pic 2](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/739732d1-080f-4c4b-bf03-9ee9f4a343f8)
+
 
 We can use gobuster to perform directory enumeration and find out the directories present on this machine.  
 The following command use common.txt wordlist to perform directory enumeration (other wordlists can also be used)  
 
 gobuster dir -u http://(ip-address-of-the-machine)/ -w (path-for-wordlist)  
 
--- Pic 3 --
+![Pic 3](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/ed16da7b-b7cc-419e-af1b-0cfb8093f749)
+
 
 The gobuster directory enumeration shows the presence of a directory "/panel" which completes our Task 2  
 
@@ -73,7 +76,8 @@ From the gobuster directory enumeration, we have a hidden directory "/panel". Na
 file upload form
 http://(ip-address-of-the-machine)/panel
 
---Pic 4 --
+![Pic 4](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/cfcd361a-c9bd-478a-9228-dc487d04e19c)
+
 
 We can obtain the reverse shell using reverse shell payload which can be found on the below url 
 
@@ -83,31 +87,37 @@ Make sure to change the IP address and the port
 -> IP address is the address of your attack box or VPN IP address  
 -> Port can be any arbitrary port number  
 
---Pic 6 --
+![Pic 6](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/af3856bb-15b5-4952-8be4-c284bd1a378b)
+
 
 Start a netcat listen on the mentioned port with the command as follows :  
 nc -lvnp 9001
 
--- Pic 8--
+![Pic 8](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/edc72b9b-a6bf-4edd-b59c-288082f23bf2)
+
 
 Uplooad the php payload after changing IP address and port. After uploading it an error as   
 PHP não é permitido! which means PHP is not allowed.   
 
--- Pic 5 --
+![Pic 5](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/0dd2a213-26bf-4549-a39a-546cacfe2a8c)
+
 
 Searching for php file extensions, we can find few like php4, php5, etc.  
 
 Save the payload as payload.php5 and upload which gives a message "The file has been uploaded" but still we do not find any shell on netcat  
 
--- Pic 7 --
+![Pic 7](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/7d28de8e-de35-45d7-b4e9-8d0cf62f416d)
+
 
 Navigating to the uploads directory (ref : gobuster directory enumeration) we can find our payload here clicking on it will give a shell on our netcat.   
 
--- Pic 9--
+![Pic 9](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/1e4b597b-cac4-4c27-891b-f5e919cb1e03)
+
 
 We can find the user flag as follows :
 
--- Pic 10 --
+![Pic 10](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/61dcb0e4-424f-44a0-80c5-752e0ce6d340)
+
 
 We can search for user.txt with the following command :
 find / -type f -name user.txt 2> /dev/null
@@ -121,7 +131,8 @@ We can find the user.txt is located at /var/www/user.txt read the file and obtai
 
 cat /var/www/user.txt
 
---Pic 11 --
+![Pic 11](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/424c43ee-4713-4a60-9bb3-c16d29869057)
+
 
 Answer to the question:
 
@@ -144,13 +155,15 @@ We can find a way to gain privilege escalation on GTFOBins
 
 https://gtfobins.github.io/gtfobins/python/
 
--- Pic 12 --
+![Pic 12](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/7996ff9b-7861-444e-8360-aafc39b9ca9f)
+
 
 Executing the above command in the shell obtained we can gain root access
 
 Once we have the root access, we can read the root.txt
 
---Pic 13--
+![Pic 13](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/3e6db471-99dd-4acc-9ff2-92cacd8d8fe8)
+
 
 Answers to the questions :
 
