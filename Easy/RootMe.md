@@ -27,7 +27,8 @@ sudo nmap -sV -A <ip-address-of-the-machine>
 -sV -> performs/detects the versions of services running on the machine
 -A -> performs OS and service detection
 
---Pic 1 --
+![Pic 1](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/3e21704f-6506-4962-bcf3-6447b0e59600)
+
 
 The nmap results shows the following :
 1. Port 22 is open running ssh version 7.6p1 (OpenSSH 7.6p1)
