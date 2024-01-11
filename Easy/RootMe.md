@@ -36,7 +36,7 @@ The nmap results shows the following :
 3. The servvice info shows the machine is running Linux OS  
 
 Since http is running on port 80 we can connect to it. Open your browser and search for the url as follows :
-http://<ip-address-of-the-machine>
+http://ip-address-of-the-machine
 
 ![Pic 2](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/a0b6c970-b785-4c48-a726-ac2a189c02b6)
 
@@ -44,7 +44,7 @@ http://<ip-address-of-the-machine>
 We can use gobuster to perform directory enumeration and find out the directories present on this machine.
 The following command use common.txt wordlist to perform directory enumeration (other wordlists can also be used)
 
-gobuster dir -u http://<ip-address-of-the-machine>/ -w <path-for-wordlist>
+gobuster dir -u http://ip-address-of-the-machine/ -w path-for-wordlist-file
 
 ![Pic 3](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/a9f0bc4a-38e3-4dd9-a6e2-7e4a9be3e3ed)
 
