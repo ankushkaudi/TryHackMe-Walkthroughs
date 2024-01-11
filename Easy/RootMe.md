@@ -22,7 +22,7 @@ Connect to OpenVPN or start the attack box or Kali Linux using blue button at th
 The first step is to perform nmap scan to get information about the services running on the machine. The nmap
 command is as follows :
 
-sudo nmap -sV -A <ip-address-of-the-machine>
+sudo nmap -sV -A ip-address-of-the-machine
 
 -sV -> performs/detects the versions of services running on the machine
 -A -> performs OS and service detection
