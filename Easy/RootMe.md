@@ -71,7 +71,7 @@ Description : Find a form to upload and get a reverse shell, and find the flag
 
 From the gobuster directory enumeration, we have a hidden directory "/panel". Navigating to the url gives us a 
 file upload form
-http://<ip-address-of-the-machine>/panel
+http://(ip-address-of-the-machine)/panel
 
 --Pic 4 --
 
@@ -79,32 +79,29 @@ We can obtain the reverse shell using reverse shell payload which can be found o
 
 https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
 
-Make sure to change the IP address and the port
-IP address is the address of your attack box or VPN IP address
-Port can be any arbitrary port number
+Make sure to change the IP address and the port  
+-> IP address is the address of your attack box or VPN IP address  
+-> Port can be any arbitrary port number  
 
 --Pic 6 --
 
-Start a netcat listen on the mentioned port with the command as follows :
+Start a netcat listen on the mentioned port with the command as follows :  
 nc -lvnp 9001
 
 -- Pic 8--
 
-Uplooad the php payload after changing IP address and port. After uploading it an error as 
-PHP não é permitido! which means PHP is not allowed. 
+Uplooad the php payload after changing IP address and port. After uploading it an error as   
+PHP não é permitido! which means PHP is not allowed.   
 
 -- Pic 5 --
 
-Searching for php file extensions, we can find few like
-php4, php5, etc.
+Searching for php file extensions, we can find few like php4, php5, etc.  
 
-Save the payload as payload.php5 and upload which gives a message "The file has been uploaded" but still we
-do not find any shell on netcat
+Save the payload as payload.php5 and upload which gives a message "The file has been uploaded" but still we do not find any shell on netcat  
 
 -- Pic 7 --
 
-Navigating to the uploads directory (ref : gobuster directory enumeration) we can find our payload here clicking 
-on it will gove a shell on our netcat 
+Navigating to the uploads directory (ref : gobuster directory enumeration) we can find our payload here clicking on it will give a shell on our netcat.   
 
 -- Pic 9--
 
@@ -128,7 +125,7 @@ cat /var/www/user.txt
 
 Answer to the question:
 
-1. user.txt
+1. user.txt  
 Ans : THM{y0u_g0t_a_sh3ll}
 
 -----------------------------------------------------------------------------------------------------------------
@@ -141,8 +138,7 @@ Now we should find a way to escalate our privileges to root. We need to find fil
 can be found by the below command :
 find / -user root -perm 4000
 
-The command says to find all the files in / directory owned by root and with SUID bit set. One such file is
-/usr/bin/python
+The command says to find all the files in / directory owned by root and with SUID bit set. One such file is /usr/bin/python  
 
 We can find a way to gain privilege escalation on GTFOBins
 
@@ -158,16 +154,16 @@ Once we have the root access, we can read the root.txt
 
 Answers to the questions :
 
-1. Search for files with SUID permission, which file is weird?
-Ans : /usr/bin/python
+1. Search for files with SUID permission, which file is weird?  
+Ans : /usr/bin/python  
 
-2. Find a form to escalate your privileges
-No answer needed
+2. Find a form to escalate your privileges  
+No answer needed  
 
-3. root.txt
-Ans : THM{pr1v1l3g3_3sc4l4t10n}
+3. root.txt  
+Ans : THM{pr1v1l3g3_3sc4l4t10n}  
 
-My views on RootMe
+Summary :
 
 It was a very interesting room designed for beginners. It gives a hands on experience to work with nmap to find 
 services running along with their versions and OS. Using gobuster to find the hidden directories. Using 
