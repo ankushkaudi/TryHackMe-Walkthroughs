@@ -24,16 +24,16 @@ command is as follows :
 
 sudo nmap -sV -A ip-address-of-the-machine
 
--sV -> performs/detects the versions of services running on the machine
--A -> performs OS and service detection
+-sV -> performs/detects the versions of services running on the machine  
+-A -> performs OS and service detection  
 
 ![Pic 1](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/3e21704f-6506-4962-bcf3-6447b0e59600)
 
 
-The nmap results shows the following :
-1. Port 22 is open running ssh version 7.6p1 (OpenSSH 7.6p1)
-2. Port 80 is open running http and Apache version 2.4.29 (Apache/2.4.29 (Ubuntu))
-3. The servvice info shows the machine is running Linux OS
+The nmap results shows the following :  
+1. Port 22 is open running ssh version 7.6p1 (OpenSSH 7.6p1)  
+2. Port 80 is open running http and Apache version 2.4.29 (Apache/2.4.29 (Ubuntu))  
+3. The servvice info shows the machine is running Linux OS  
 
 Since http is running on port 80 we can connect to it. Open your browser and search for the url as follows :
 http://<ip-address-of-the-machine>
