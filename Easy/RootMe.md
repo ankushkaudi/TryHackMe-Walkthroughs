@@ -1,7 +1,7 @@
-Room Name : RootMe
-Category : Easy
-Tags : Security, Web, Linux, Privilege-Escalation
-URL for the room : https://tryhackme.com/room/rrootme
+Room Name : RootMe  
+Category : Easy  
+Tags : Security, Web, Linux, Privilege-Escalation  
+URL for the room : https://tryhackme.com/room/rrootme  
 
 ---------------------------------------------------------------------------------------------------
 
