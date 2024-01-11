@@ -38,14 +38,16 @@ The nmap results shows the following :
 Since http is running on port 80 we can connect to it. Open your browser and search for the url as follows :
 http://<ip-address-of-the-machine>
 
---Pic 2 --
+![Pic 2](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/a0b6c970-b785-4c48-a726-ac2a189c02b6)
+
 
 We can use gobuster to perform directory enumeration and find out the directories present on this machine.
 The following command use common.txt wordlist to perform directory enumeration (other wordlists can also be used)
 
 gobuster dir -u http://<ip-address-of-the-machine>/ -w <path-for-wordlist>
 
--- Pic 3 --
+![Pic 3](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/a9f0bc4a-38e3-4dd9-a6e2-7e4a9be3e3ed)
+
 
 The gobuster directory enumeration shows the presence of a directory "/panel" which completes our task 2
 
@@ -76,7 +78,8 @@ From the gobuster directory enumeration, we have a hidden directory "/panel". Na
 file upload form
 http://<ip-address-of-the-machine>/panel
 
---Pic 4 --
+![Pic 4](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/3e3a603c-d701-4105-bba8-15965fa3b214)
+
 
 We can obtain the reverse shell using reverse shell payload which can be found on the below url 
 
@@ -86,17 +89,20 @@ Make sure to change the IP address and the port
 IP address is the address of your attack box or VPN IP address
 Port can be any arbitrary port number
 
---Pic 6 --
+![Pic 6](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/6faf0706-7df3-4100-9572-6e2789a41e95)
+
 
 Start a netcat listen on the mentioned port with the command as follows :
 nc -lvnp 9001
 
--- Pic 8--
+![Pic 8](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/982bbd46-0894-4380-a69c-676a3c4e0a74)
+
 
 Uplooad the php payload after changing IP address and port. After uploading it an error as 
 PHP não é permitido! which means PHP is not allowed. 
 
--- Pic 5 --
+![Pic 5](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/ef7511b5-8ba5-409b-901a-c90ee0ed71d4)
+
 
 Searching for php file extensions, we can find few like
 php4, php5, etc.
@@ -104,16 +110,19 @@ php4, php5, etc.
 Save the payload as payload.php5 and upload which gives a message "The file has been uploaded" but still we
 do not find any shell on netcat
 
--- Pic 7 --
+![Pic 7](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/1b31929d-974d-465b-a25c-0d5dd89b7bf1)
+
 
 Navigating to the uploads directory (ref : gobuster directory enumeration) we can find our payload here clicking 
 on it will gove a shell on our netcat 
 
--- Pic 9--
+![Pic 9](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/da5be8b2-6b19-427b-b7c1-9b78260b6303)
+
 
 We can find the user flag as follows :
 
--- Pic 10 --
+![Pic 10](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/8ddef220-0ade-43a2-9665-67e66198ef63)
+
 
 We can search for user.txt with the following command :
 find / -type f -name user.txt 2> /dev/null
@@ -127,7 +136,8 @@ We can find the user.txt is located at /var/www/user.txt read the file and obtai
 
 cat /var/www/user.txt
 
---Pic 11 --
+![Pic 11](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/7fe137c9-6385-43fa-8830-e396e490b9da)
+
 
 Answer to the question:
 
@@ -151,13 +161,15 @@ We can find a way to gain privilege escalation on GTFOBins
 
 https://gtfobins.github.io/gtfobins/python/
 
--- Pic 12 --
+![Pic 12](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/d571b59e-6fa8-4e19-9d84-930e107b7681)
+
 
 Executing the above command in the shell obtained we can gain root access
 
 Once we have the root access, we can read the root.txt
 
---Pic 13--
+![Pic 13](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/695be804-49a1-4b8e-b977-9f8bbd6e1cd1)
+
 
 Answers to the questions :
 
@@ -170,7 +182,7 @@ No answer needed
 3. root.txt
 Ans : THM{pr1v1l3g3_3sc4l4t10n}
 
-My views on RootMe
+Summary : 
 
 It was a very interesting room designed for beginners. It gives a hands on experience to work with nmap to find 
 services running along with their versions and OS. Using gobuster to find the hidden directories. Using 
