@@ -178,9 +178,5 @@ No answer needed
 3. root.txt  
 Ans : THM{pr1v1l3g3_3sc4l4t10n}  
 
-Summary :
 
-It was a very interesting room designed for beginners. It gives a hands on experience to work with nmap to find 
-services running along with their versions and OS. Using gobuster to find the hidden directories. Using 
-php-reverse-shell payload to obtain a shell and finding ways to escalate the privileges. Overall, a perfectly 
 developed room for beginners. 
