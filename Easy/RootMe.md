@@ -178,5 +178,3 @@ No answer needed
 3. root.txt  
 Ans : THM{pr1v1l3g3_3sc4l4t10n}  
 
-
-developed room for beginners. 
