@@ -1,6 +1,6 @@
-Room Name : Basic Pentesting
-Category : Easy
-URL for the room : https://tryhackme.com/room/basicpentestingjt
+Room Name : Basic Pentesting  
+Category : Easy  
+URL for the room : https://tryhackme.com/room/basicpentestingjt  
 
 Before going through the walkthrough, I would suggest you to try solving this on your own. Don't jump directly into the solution as you may miss the thrill to solve the box.  
 
@@ -101,17 +101,17 @@ Enter the password to login as **kay**. Once logged in we can read the pass.bak 
 
 ![8](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/22790272-cfcd-46ea-a74f-0a8a225a8cdb)
 
-8. Enumerate the machine to find any vectors for privilege escalation  
-Ans. : -- No answers neede --
+8. Enumerate the machine to find any vectors for privilege escalation    
+Ans. : -- No answers neede --  
+ 
+9. What is the name of the other user you found(all lower case)?  
+Ans. : kay  
 
-9. What is the name of the other user you found(all lower case)?
-Ans. : kay
+10. If you have found another user, what can you do with this information?  
+Ans. : -- No answers needed --  
 
-10. If you have found another user, what can you do with this information?
-Ans. : -- No answers needed --
-
-11. What is the final password you obtain?
-Ans. : heresareallystrongpasswordthatfollowsthepasswordpolicy$$
+11. What is the final password you obtain?  
+Ans. : heresareallystrongpasswordthatfollowsthepasswordpolicy$$  
 
 
 
