@@ -80,7 +80,8 @@ Ans. : SSH
 
 After exploring a bit, I found out that there is private RSA key of user **kay** and we have the read permissions. So, we can use it to crack password of **kay**. Following are the steps to crack RSA private key of **kay**
 
-![8](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/b6b59089-e2a5-4d1e-94fb-df76202357ed)
+![7](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/525cb265-7a9e-43da-a98d-6b202d5b664b)
+
 
 
 1. Copy the key to your local computer as id_rsa (can be anything)
