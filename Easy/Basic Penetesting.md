@@ -75,7 +75,7 @@ Ans. : jan
 6. What is the password?  
 Ans. : armando
 
-7. What service do you use to access the server(answer in abbreviation in all caps)?
+7. What service do you use to access the server(answer in abbreviation in all caps)?  
 Ans. : SSH
 
 After exploring a bit, I found out that there is private RSA key of user **kay** and we have the read permissions. So, we can use it to crack password of **kay**. Following are the steps to crack RSA private key of **kay**
@@ -86,8 +86,8 @@ After exploring a bit, I found out that there is private RSA key of user **kay**
 1. Copy the key to your local computer as id_rsa (can be anything)
 2. Use JohnTheRipper to crack the RSA key to find password of **kay**
 
-**command for cracking RSA private key**
-**1. ssh2john id_rsa > hash** -> stores the private key hash into new file named hash
+**command for cracking RSA private key**  
+**1. ssh2john id_rsa > hash** -> stores the private key hash into new file named hash  
 **2. john --wordlist=path/for/wordlist hash** -> uses wordlist to crack the private key
 
 From above steps, we can find the password for **kay** is **beeswax**
@@ -99,7 +99,8 @@ Now, once we have the password for **kay**, we can login as kay as follows :
 
 Enter the password to login as **kay**. Once logged in we can read the pass.bak and get the final password.
 
-![8](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/22790272-cfcd-46ea-a74f-0a8a225a8cdb)
+![9](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/c3e62295-fa41-47f9-895f-30559b4ed539)
+
 
 8. Enumerate the machine to find any vectors for privilege escalation    
 Ans. : -- No answers neede --  
