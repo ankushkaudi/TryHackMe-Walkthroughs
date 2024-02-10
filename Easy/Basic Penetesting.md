@@ -45,7 +45,8 @@ There is nothing much we can see from this page. Performing directory enumeratio
 
 **command for gobuster : gobuster dir -u http://[MACHINE-IP]/ -w path-for-wordlist**
 
-![3](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/3af96c1b-b820-4537-89d6-2d88ed6240ca)
+![Screenshot from 2024-02-11 00-12-17](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/38983dce-2861-428b-a876-c02a93286400)
+
 
 3. What is the name of the hidden directory on the web server(enter name without /)?  
 Ans. : development
