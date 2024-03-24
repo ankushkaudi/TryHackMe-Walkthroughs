@@ -6,7 +6,7 @@ Before going through the walkthrough, I would suggest you to try solving this on
 
 -------------------------------------------------------------------------------------------
 
-Task 1 : Intermediate level CTF. Just enumerate, you'll get there.
+**Task 1 : Intermediate level CTF. Just enumerate, you'll get there.**
 
 Perform nmap scan for the given IP address of the machine
 
@@ -87,6 +87,80 @@ Ans : --No answer needed--
 Ans : log.txt
 
 -----------------------------------------------------------------------------------------------------------------------------
+
+**Task 2 : You can complete this with manual enumeration, but do it as you wish**
+
+We have the ssh credentials for user named basterd, so we can login and find the file named backup.sh which contains the credentials for another user named stoner
+Username : stoner
+Password : superduperp@$$no1knows
+
+![10](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/2b8cd446-5bf3-4fa7-b87c-8978f173cd55)
+
+Now logging in to ssh as stoner and exploring, we find a file named secret which has the answer for user.txt
+
+![11](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/5afe8a85-b965-48e0-96b0-0f7ec7eb5f2d)
+
+Now our last task is to ecalate the privileges, so we can find the files whose SUID bit is set
+
+About SUID : 
+SUID stands for Set User ID. It's a special permission in Unix-like operating systems, including Linux. When SUID is set on an executable file, it allows that file to run with the privileges of the file owner rather than the user who is executing it. In other words, when a user runs an executable file with the SUID bit set, the program will run with the same permissions as the owner of the file, regardless of who executed it.
+
+SUID is represented by the 's' bit in the permissions of a file. If the 's' bit is set in the user permissions (the owner's permissions) of the file, it indicates SUID. Likewise, the 's' bit in group permissions or others' permissions can represent SGID (Set Group ID) and sticky bit, respectively.
+
+The SUID mechanism is often used for programs that need elevated privileges to perform certain operations but need to be executed by regular users. Examples include programs related to system administration tasks, such as changing passwords or managing system resources, which require elevated privileges but should be accessible to non-administrative users. However, it's crucial to handle SUID-enabled programs carefully to avoid security vulnerabilities, as they can potentially be exploited to gain unauthorized access or execute malicious actions if not properly secured.
+
+We can find the files with SUID bit set using the following command : 
+
+**find / -perm /4000 -type f -exec ls -ld {} \; 2>/dev/null**
+
+Explanation of above command : 
+-> find: This is the command used to search for files and directories within a specified directory hierarchy.
+
+-> /: This specifies the root directory from which the search should begin.
+-> -perm /4000: This is the primary condition used by find to search for files with specific permissions. In this case, it's looking for files with the SUID or SGID bit set. The 4000 value represents the SUID (4) or SGID (2) bit being set. The / before 4000 means that either the SUID or SGID bit is set.
+
+-> -type f: This additional condition tells find to only search for regular files, excluding directories and other types of files.
+
+-> -exec ls -ld {} \;: This part of the command executes the ls -ld command on each file found by find. ls -ld is used to list files in long format (-l) and provide details about the files, including permissions, owner, group, size, and modification time. {} is a placeholder for each file found by find, and \; indicates the end of the -exec command.
+
+-> 2>/dev/null: This part of the command redirects standard error output (file descriptor 2) to /dev/null, effectively suppressing any error messages that may occur during the execution of the command.
+
+This gives the following results with all the files with SUID bit set.
+
+![12](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/f288a424-8c06-44a2-9fda-66abb2e8b4bf)
+
+We can find /usr/bin/find whose SUID bit is set and can be used to escalate the privileges using the following command and we can read the root.txt
+
+**find . -exec chmod 777 /root \;**
+
+Explanation of above command : 
+This command is attempting to change the permissions of the /root directory and potentially all files and directories within it to allow full read, write, and execute permissions for all users. 
+
+-> find .: This command starts the search from the current directory (.), searching recursively through all files and directories within it.
+
+-> -exec: This option allows you to execute a command on each file or directory found by find.
+
+-> chmod 777 /root: This is the command being executed for each file or directory found. chmod is a command used to change file permissions, and 777 represents full permissions for owner, group, and others (read, write, and execute permissions). However, the target directory specified here is /root, which is the root user's home directory. Changing permissions on this directory could potentially have severe security implications, as it could allow any user on the system to modify critical system files, which is highly discouraged and often prevented by the system.
+
+-> \;: This signifies the end of the -exec command.
+
+![13](https://github.com/ankushkaudi/TryHackMe-Walkthroughs/assets/111695465/3cc861ce-569a-4ea9-a55f-85df9584cdf0)
+
+This completes the Task 2
+
+Questions : 
+
+1. Where was the other users pass stored(no extension, just the name)?
+Ans : backup (in backup.sh)
+
+2. user.txt
+Ans : You made it till here, well done. (from secret)
+
+3. What did you exploit to get the privileged user?
+Ans : find
+
+4. root.txt
+Ans : It wasn't that hard, was it?  
 
 
 
