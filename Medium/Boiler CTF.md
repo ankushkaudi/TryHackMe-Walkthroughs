@@ -68,22 +68,22 @@ Questons :
 1. File extension after anon login  
 Ans : txt
 
-2. What is on the highest port?
+2. What is on the highest port?  
 Ans : ssh (on port 55007)
 
-3. What's running on port 10000?
+3. What's running on port 10000?  
 Ans : Webmin (can be found in nmap scan)
 
-4. Can you exploit the service running on that port? (yay/nay answer)
+4. Can you exploit the service running on that port? (yay/nay answer)  
 Ans : nay (Webmin cannot be exploited as it is in the latest version)
 
-5. What's CMS can you access?
+5. What's CMS can you access?  
 Ans : joomla
 
-6. Keep enumerating, you'll know when you find it.
+6. Keep enumerating, you'll know when you find it.  
 Ans : --No answer needed--
 
-7. The interesting file name in the folder?
+7. The interesting file name in the folder?  
 Ans : log.txt
 
 
