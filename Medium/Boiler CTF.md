@@ -1,6 +1,6 @@
-Room Name : Boiler CTF
-Category : Medium
-URL for the room : https://tryhackme.com/r/room/boilerctf2
+Room Name : Boiler CTF  
+Category : Medium  
+URL for the room : https://tryhackme.com/r/room/boilerctf2  
 
 Before going through the walkthrough, I would suggest you to try solving this on your own. Don't jump directly into the solution as you may miss the thrill to solve the box.
 
@@ -86,7 +86,7 @@ Ans : --No answer needed--
 7. The interesting file name in the folder?  
 Ans : log.txt
 
-
+-----------------------------------------------------------------------------------------------------------------------------
 
 
 
